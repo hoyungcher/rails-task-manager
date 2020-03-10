@@ -1,2 +1,12 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>Tasks</h1>
+<% @tasks.each do |task| %>
+  <form action="">
+    <input type="checkbox">
+    <a href="/tasks/<%= task.id %>"><%= task.title %></a>
+    <%= link_to "Delete", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+  </form>
+  <br>
+<% end %>
+<a href="/tasks/new">Add a new Task</a>
